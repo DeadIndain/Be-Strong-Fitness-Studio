@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BE STRONG FITNESS STUDIO | Master Your Body</title>
+    <meta name="description" content="BE STRONG FITNESS STUDIO. Cinematic gym experience. Start your fitness journey today.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo-group">
+                <img src="logo.jpg" alt="Be Strong Fitness Studio" class="brand-logo">
+                <div class="brand-text">
+                    <span class="brand-title">BE STRONG</span>
+                    <span class="brand-subtitle">FITNESS STUDIO</span>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <a href="#packages">Memberships</a>
+                <a href="#facilities">Facilities</a>
+                <a href="#timings">Timings</a>
+                <a href="#cta" class="nav-join-btn">Join Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Frame Scrub Section -->
+        <section class="hero-scrub-container" id="hero-scrub">
+            <div class="sticky-container">
+                <canvas id="frame-canvas"></canvas>
+                <div class="sync-text text-start" id="text-start">Start Your Journey</div>
+                <div class="sync-text text-mid" id="text-mid">Build Strength</div>
+                <div class="sync-text text-final" id="text-final">Master Your Body</div>
+                
+                <div class="scroll-indicator">
+                    <span>Scroll to explore</span>
+                    <div class="mouse"><div class="wheel"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Packages Section -->
+        <section class="section packages-section" id="packages">
+            <div class="container">
+                <h2 class="section-title">Membership Plans</h2>
+                <div class="packages-grid">
+                    <div class="package-card fade-up">
+                        <h3>1 Month</h3>
+                        <div class="price">
+                            <span class="old-price">Rs 5000</span>
+                            <span class="new-price">Rs 2500</span>
+                        </div>
+                        <ul class="benefits">
+                            <li>2 Steam Baths</li>
+                            <li>2 Massage Chair</li>
+                        </ul>
+                    </div>
+                    <div class="package-card fade-up">
+                        <h3>2 Months</h3>
+                        <div class="price">
+                            <span class="old-price">Rs 9000</span>
+                            <span class="new-price">Rs 4500</span>
+                        </div>
+                        <ul class="benefits">
+                            <li>4 Steam Baths</li>
+                            <li>4 Massage Chair</li>
+                        </ul>
+                    </div>
+                    <div class="package-card fade-up">
+                        <h3>3 Months</h3>
+                        <div class="price">
+                            <span class="old-price">Rs 12000</span>
+                            <span class="new-price">Rs 6000</span>
+                        </div>
+                        <ul class="benefits">
+                            <li>6 Steam Baths</li>
+                            <li>6 Massage Chair</li>
+                        </ul>
+                    </div>
+                    <div class="package-card highlight fade-up">
+                        <div class="badge">Most Popular</div>
+                        <h3>6 Months</h3>
+                        <div class="price">
+                            <span class="old-price">Rs 16000</span>
+                            <span class="new-price">Rs 8000</span>
+                        </div>
+                        <ul class="benefits">
+                            <li>12 Steam Baths</li>
+                            <li>12 Massage Chair</li>
+                        </ul>
+                    </div>
+                    <div class="package-card highlight premium fade-up">
+                        <div class="badge premium">Ultimate Value</div>
+                        <h3>12 Months</h3>
+                        <div class="price">
+                            <span class="old-price">Rs 24000</span>
+                            <span class="new-price">Rs 12000</span>
+                        </div>
+                        <ul class="benefits">
+                            <li>24 Steam Baths</li>
+                            <li>24 Massage Chair</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facilities Section -->
+        <section class="section facilities-section" id="facilities">
+            <div class="container">
+                <h2 class="section-title">World-Class Facilities</h2>
+            </div>
+            <div class="facilities-scroller-wrapper fade-up">
+                <button class="scroll-arrow left-arrow" aria-label="Scroll left">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+                </button>
+                <button class="scroll-arrow right-arrow" aria-label="Scroll right">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                </button>
+                <div class="facilities-scroller" id="facilities-scroller">
+                    <div class="facility-image-card">
+                        <img src="facilities/general-training.jpeg" alt="General Training" class="facility-img">
+                        <div class="card-content">
+                            <h4>General Training</h4>
+                        </div>
+                    </div>
+                    <div class="facility-image-card">
+                        <img src="facilities/diet-plan.jpg" alt="Diet Plan" class="facility-img">
+                        <div class="card-content">
+                            <h4>Diet Plan</h4>
+                        </div>
+                    </div>
+                    <div class="facility-image-card">
+                        <img src="facilities/cardio.jpg" alt="Cardio" class="facility-img">
+                        <div class="card-content">
+                            <h4>Cardio</h4>
+                        </div>
+                    </div>
+                    <div class="facility-image-card">
+                        <img src="facilities/strength-training.jpeg" alt="Strength Training" class="facility-img">
+                        <div class="card-content">
+                            <h4>Strength Training</h4>
+                        </div>
+                    </div>
+                    <div class="facility-image-card">
+                        <img src="facilities/boxing.jpg" alt="Boxing" class="facility-img">
+                        <div class="card-content">
+                            <h4>Boxing</h4>
+                        </div>
+                    </div>
+                    <div class="facility-image-card">
+                        <img src="facilities/lockers.jpg" alt="lockers" class="facility-img">
+                        <div class="card-content">
+                            <h4>Lockers</h4>
+                        </div>
+                    </div>
+                    <div class="facility-image-card">
+                        <img src="facilities/steam-bath.jpg" alt="Steam Bath" class="facility-img">
+                        <div class="card-content">
+                            <h4>Steam Bath &amp; Shower</h4>
+                        </div>
+                    </div>
+                    <div class="facility-image-card">
+                        <img src="facilities/massage-chair.jpg" alt="Massage Chair" class="facility-img">
+                        <div class="card-content">
+                            <h4>Full Body Massage Chair</h4>
+                        </div>
+                    </div>
+                    <div class="facility-image-card">
+                        <img src="facilities/green-tea.jpg" alt="Green Tea" class="facility-img">
+                        <div class="card-content">
+                            <h4>Green Tea with Honey</h4>
+                        </div>
+                    </div>
+                    <div class="facility-image-card">
+                        <img src="facilities/black-cofee.jpeg" alt="Black Coffee" class="facility-img">
+                        <div class="card-content">
+                            <h4>Black Coffee with Honey</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timings & Special Offer Section -->
+        <section class="section timings-section" id="timings">
+            <div class="container dual-col">
+                <div class="timings-info fade-up">
+                    <h2 class="section-title text-left">Gym Timings</h2>
+                    <div class="timing-block">
+                        <h3>Monday–Saturday</h3>
+                        <p>5:00 AM – 10:00 PM</p>
+                    </div>
+                    <div class="timing-block">
+                        <h3>Sunday</h3>
+                        <p>6:00 AM – 12:00 PM</p>
+                        <p>6:00 PM – 9:30 PM</p>
+                    </div>
+                    <div class="timing-note">
+                        <p><strong>Note:</strong> Treadmill only 15 minutes, 2 hours workout limit</p>
+                    </div>
+                </div>
+                
+                <div class="special-offer fade-up">
+                    <div class="offer-pulse"></div>
+                    <h2 class="glow-text">50% OFF</h2>
+                    <p>Limited Time Offer on all Memberships</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="section cta-section" id="cta">
+            <div class="container text-center fade-up">
+                <h2 class="cta-title">Start Your Fitness Journey Today</h2>
+                <div class="cta-buttons">
+                    <a href="#packages" class="btn primary">Join Now</a>
+                    <a href="https://wa.me/1234567890" target="_blank" class="btn whatsapp">
+                        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                        WhatsApp Us
+                    </a>
+                </div>
+            </div>
+            
+        </section>
+        
+        <footer>
+            <div class="container text-center">
+                <p>&copy; 2026 BE STRONG FITNESS STUDIO. All rights reserved.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
