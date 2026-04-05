@@ -1,6 +1,9 @@
 import { requireAuth } from "../../../lib/auth/server";
 import { USER_ROLES } from "../../../lib/constants/auth";
 import CalorieCalculator from "@/app/components/user/calorie-calculator";
+import GoalPlanner from "@/app/components/user/goal-planner";
+import MembershipCheckout from "@/app/components/user/membership-checkout";
+import ReviewsPanel from "@/app/components/user/reviews-panel";
 import WorkoutFinder from "@/app/components/user/workout-finder";
 
 export default async function UserDashboardPage() {
@@ -18,6 +21,9 @@ export default async function UserDashboardPage() {
 				</ul>
 			</div>
 
+			<GoalPlanner />
+			<MembershipCheckout />
+			<ReviewsPanel />
 			<CalorieCalculator />
 			<WorkoutFinder />
 		</div>
