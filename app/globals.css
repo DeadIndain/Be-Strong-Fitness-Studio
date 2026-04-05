@@ -805,11 +805,6 @@ h4 {
 .auth-page {
 	min-height: 100vh;
 	padding: 8rem 0 4rem;
-	background: radial-gradient(
-		circle at 10% 10%,
-		rgba(0, 179, 164, 0.16) 0%,
-		var(--bg) 55%
-	);
 }
 
 .auth-shell {
@@ -961,6 +956,11 @@ h4 {
 	margin-bottom: 0.8rem;
 }
 
+.dashboard-stack {
+	display: grid;
+	gap: 1rem;
+}
+
 .dashboard-list {
 	list-style: none;
 	display: grid;
@@ -1036,6 +1036,308 @@ h4 {
 	font-size: 0.82rem;
 }
 
+.calorie-card {
+	display: grid;
+	gap: 1rem;
+}
+
+.calorie-head p {
+	margin-bottom: 0;
+}
+
+.calorie-search {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 0.7rem;
+}
+
+.calorie-search input {
+	width: 100%;
+	background: rgba(255, 255, 255, 0.06);
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	border-radius: 12px;
+	padding: 0.72rem 0.8rem;
+	color: var(--text);
+	font: inherit;
+}
+
+.calorie-search input:focus {
+	outline: none;
+	border-color: var(--primary);
+	box-shadow: 0 0 0 3px rgba(0, 179, 164, 0.2);
+}
+
+.calorie-search-btn {
+	padding: 0.72rem 1.4rem;
+	font-size: 0.95rem;
+	border: 0;
+	cursor: pointer;
+}
+
+.calorie-search-btn:disabled {
+	opacity: 0.7;
+	cursor: wait;
+}
+
+.calorie-error {
+	color: #ff9d9d;
+	font-size: 0.92rem;
+	margin: 0;
+}
+
+.calorie-result {
+	display: grid;
+	grid-template-columns: 220px 1fr;
+	gap: 1rem;
+	padding: 0.9rem;
+	border-radius: 16px;
+	border: 1px solid var(--card-border);
+	background: rgba(255, 255, 255, 0.02);
+}
+
+.calorie-image-wrap {
+	border-radius: 12px;
+	overflow: hidden;
+	border: 1px solid var(--card-border);
+	background: rgba(255, 255, 255, 0.04);
+}
+
+.calorie-image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	min-height: 220px;
+	object-fit: cover;
+}
+
+.calorie-data {
+	display: grid;
+	gap: 0.65rem;
+	min-width: 0;
+}
+
+.calorie-title-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 0.8rem;
+	flex-wrap: wrap;
+}
+
+.calorie-title-row h3 {
+	font-size: 1.25rem;
+	line-height: 1.2;
+}
+
+.calorie-subtext {
+	margin: 0;
+	color: var(--text-muted);
+	font-size: 0.9rem;
+}
+
+.calorie-metrics-grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(110px, 1fr));
+	gap: 0.55rem;
+}
+
+.calorie-metric {
+	padding: 0.6rem;
+	border-radius: 12px;
+	border: 1px solid var(--card-border);
+	background: rgba(255, 255, 255, 0.03);
+	display: grid;
+	gap: 0.2rem;
+}
+
+.calorie-metric span {
+	font-size: 0.8rem;
+	color: var(--text-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.calorie-metric strong {
+	font-size: 1rem;
+	line-height: 1.15;
+}
+
+.calorie-extra-metrics {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 1rem;
+}
+
+.calorie-extra-metrics p {
+	margin: 0;
+	font-size: 0.9rem;
+	color: #dfdfdf;
+}
+
+.exercise-card {
+	display: grid;
+	gap: 1rem;
+}
+
+.exercise-head p {
+	margin-bottom: 0;
+}
+
+.exercise-search {
+	display: grid;
+	grid-template-columns: minmax(240px, 1fr) 220px auto auto;
+	gap: 0.7rem;
+	align-items: center;
+}
+
+.exercise-search input,
+.exercise-search select {
+	width: 100%;
+	background: rgba(255, 255, 255, 0.06);
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	border-radius: 12px;
+	padding: 0.72rem 0.8rem;
+	color: var(--text);
+	font: inherit;
+}
+
+.exercise-search select {
+	appearance: none;
+	background-image:
+		linear-gradient(45deg, transparent 50%, #96fff6 50%),
+		linear-gradient(135deg, #96fff6 50%, transparent 50%);
+	background-position:
+		calc(100% - 16px) calc(50% - 2px),
+		calc(100% - 10px) calc(50% - 2px);
+	background-size:
+		6px 6px,
+		6px 6px;
+	background-repeat: no-repeat;
+	padding-right: 2rem;
+}
+
+.exercise-search input:focus,
+.exercise-search select:focus {
+	outline: none;
+	border-color: var(--primary);
+	box-shadow: 0 0 0 3px rgba(0, 179, 164, 0.2);
+}
+
+.exercise-check {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+	font-size: 0.92rem;
+	color: #e3e3e3;
+	padding: 0.45rem 0.2rem;
+	white-space: nowrap;
+}
+
+.exercise-check input {
+	accent-color: var(--primary);
+	width: 16px;
+	height: 16px;
+}
+
+.exercise-search-btn {
+	padding: 0.72rem 1.4rem;
+	font-size: 0.95rem;
+	border: 0;
+	cursor: pointer;
+	min-width: 110px;
+}
+
+.exercise-search-btn:disabled {
+	opacity: 0.7;
+	cursor: wait;
+}
+
+.exercise-subtext {
+	margin: 0;
+	font-size: 0.9rem;
+	color: var(--text-muted);
+}
+
+.exercise-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 0.8rem;
+}
+
+.exercise-item {
+	border: 1px solid var(--card-border);
+	border-radius: 16px;
+	overflow: hidden;
+	background: rgba(255, 255, 255, 0.02);
+	display: grid;
+	grid-template-rows: auto 1fr;
+}
+
+.exercise-media {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	background: rgba(255, 255, 255, 0.03);
+	min-height: 180px;
+}
+
+.exercise-image,
+.exercise-video {
+	display: block;
+	width: 100%;
+	height: 220px;
+	object-fit: cover;
+}
+
+.exercise-content {
+	padding: 0.8rem;
+	display: grid;
+	gap: 0.45rem;
+}
+
+.exercise-title-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 0.6rem;
+	flex-wrap: wrap;
+}
+
+.exercise-title-row h3 {
+	font-size: 1.06rem;
+	line-height: 1.2;
+}
+
+.exercise-content p {
+	margin: 0;
+	font-size: 0.9rem;
+	color: #e5e5e5;
+}
+
+.exercise-meta {
+	list-style: none;
+	display: grid;
+	gap: 0.2rem;
+	font-size: 0.84rem;
+	color: #c9c9c9;
+}
+
+.exercise-empty {
+	margin: 0;
+	font-size: 0.95rem;
+	color: var(--text-muted);
+}
+
+.exercise-instructions {
+	display: grid;
+	gap: 0.35rem;
+	padding-left: 1.2rem;
+	color: #e4e4e4;
+	font-size: 0.9rem;
+}
+
+.exercise-instructions li::marker {
+	color: var(--primary);
+}
+
 @media (max-width: 900px) {
 	.dual-col {
 		grid-template-columns: 1fr;
@@ -1061,6 +1363,27 @@ h4 {
 	}
 	.auth-card {
 		order: 2;
+	}
+	.calorie-search {
+		grid-template-columns: 1fr;
+	}
+	.calorie-search-btn {
+		width: 100%;
+	}
+	.calorie-result {
+		grid-template-columns: 1fr;
+	}
+	.calorie-image {
+		max-height: 260px;
+	}
+	.calorie-metrics-grid {
+		grid-template-columns: repeat(2, minmax(120px, 1fr));
+	}
+	.exercise-search {
+		grid-template-columns: 1fr;
+	}
+	.exercise-search-btn {
+		width: 100%;
 	}
 }
 

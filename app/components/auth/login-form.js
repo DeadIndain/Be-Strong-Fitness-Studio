@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import {
 	createUserWithEmailAndPassword,
+	GoogleAuthProvider,
+	signInWithPopup,
 	signInWithEmailAndPassword,
 	signOut,
 	updateProfile,
@@ -52,12 +54,16 @@ function readableError(error) {
 		return "This domain is not authorized in Firebase Authentication.";
 	}
 
-	if (
-		haystack.includes("PERMISSION_DENIED") ||
-		haystack.includes("Cloud Firestore API has not been used") ||
-		haystack.includes("firestore.googleapis.com")
-	) {
-		return "Enable the Firestore API for this Firebase project, then retry.";
+	if (haystack.includes("auth/popup-closed-by-user")) {
+		return "Google sign-in was closed before it completed.";
+	}
+
+	if (haystack.includes("auth/popup-blocked")) {
+		return "Your browser blocked the Google sign-in popup.";
+	}
+
+	if (haystack.includes("auth/account-exists-with-different-credential")) {
+		return "An account already exists with this email using another sign-in method.";
 	}
 
 	return "Something went wrong. Please try again.";
@@ -69,10 +75,33 @@ export default function LoginForm() {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(null);
 	const [error, setError] = useState("");
 
 	const isRegister = mode === "register";
+	const isBusy = Boolean(loading);
+
+	const completeSession = async (user) => {
+		const idToken = await user.getIdToken(true);
+		const response = await fetch("/api/auth/session", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ idToken }),
+		});
+
+		if (!response.ok) {
+			const payload = await response.json().catch(() => ({}));
+			const sessionError = new Error(
+				payload?.message ?? "Session setup failed",
+			);
+			sessionError.code = payload?.code ?? "session/failed";
+			throw sessionError;
+		}
+
+		await signOut(auth);
+		router.push("/dashboard");
+		router.refresh();
+	};
 
 	const submit = async (event) => {
 		event.preventDefault();
@@ -88,7 +117,7 @@ export default function LoginForm() {
 			return;
 		}
 
-		setLoading(true);
+		setLoading("email");
 
 		try {
 			const cred = isRegister
@@ -99,29 +128,27 @@ export default function LoginForm() {
 				await updateProfile(cred.user, { displayName: name.trim() });
 			}
 
-			const idToken = await cred.user.getIdToken(true);
-			const response = await fetch("/api/auth/session", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ idToken }),
-			});
-
-			if (!response.ok) {
-				const payload = await response.json().catch(() => ({}));
-				const sessionError = new Error(
-					payload?.message ?? "Session setup failed",
-				);
-				sessionError.code = payload?.code ?? "session/failed";
-				throw sessionError;
-			}
-
-			await signOut(auth);
-			router.push("/dashboard");
-			router.refresh();
+			await completeSession(cred.user);
 		} catch (e) {
 			setError(readableError(e));
 		} finally {
-			setLoading(false);
+			setLoading(null);
+		}
+	};
+
+	const signInWithGoogle = async () => {
+		setError("");
+		setLoading("google");
+
+		try {
+			const provider = new GoogleAuthProvider();
+			provider.setCustomParameters({ prompt: "select_account" });
+			const result = await signInWithPopup(auth, provider);
+			await completeSession(result.user);
+		} catch (e) {
+			setError(readableError(e));
+		} finally {
+			setLoading(null);
 		}
 	};
 
@@ -132,14 +159,14 @@ export default function LoginForm() {
 					type="button"
 					className={mode === "login" ? "active" : ""}
 					onClick={() => setMode("login")}
-					disabled={loading}>
+					disabled={isBusy}>
 					Login
 				</button>
 				<button
 					type="button"
 					className={mode === "register" ? "active" : ""}
 					onClick={() => setMode("register")}
-					disabled={loading}>
+					disabled={isBusy}>
 					Register
 				</button>
 			</div>
@@ -182,11 +209,25 @@ export default function LoginForm() {
 
 				{error ? <p className="auth-error">{error}</p> : null}
 
+				{!isRegister ? (
+					<>
+						<button
+							type="button"
+							className="btn secondary auth-submit"
+							onClick={signInWithGoogle}
+							disabled={isBusy}>
+							{loading === "google" ? "Connecting..." : "Continue with Google"}
+						</button>
+
+						<p className="auth-error muted">or use email and password</p>
+					</>
+				) : null}
+
 				<button
 					type="submit"
 					className="btn primary auth-submit"
-					disabled={loading}>
-					{loading
+					disabled={isBusy}>
+					{loading === "email"
 						? "Please wait..."
 						: isRegister
 							? "Create Account"
